@@ -9,8 +9,7 @@ import org.springframework.stereotype.Component;
 public class Schedule {
 
     @Scheduled(fixedRate = 10000)
-    public void runUpdateRoomEndContract() {
+    public void runJob() {
         log.info("Run job");
-
     }
 }
