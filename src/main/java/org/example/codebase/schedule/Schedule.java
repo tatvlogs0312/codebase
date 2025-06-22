@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class Schedule {
 
-    @Scheduled(fixedDelay = 1000 * 60 * 60 * 3)
+    @Scheduled(fixedRate = 10000)
     public void runUpdateRoomEndContract() {
         log.info("Run job");
 
