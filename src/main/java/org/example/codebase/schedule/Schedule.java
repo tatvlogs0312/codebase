@@ -9,14 +9,16 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class Schedule {
 
-    @Scheduled(fixedRate = 10000)
+    //@Scheduled(fixedRate = 10000)
     public void runJob() {
         log.info("Run job");
     }
 
-    @Scheduled(cron = "0 0/5 * * * ?") // mỗi 5 phút
-    @SchedulerLock(name = "generateReport", lockAtMostFor = "PT5M", lockAtLeastFor = "PT1M")
+    @Scheduled(fixedRate = 2000) // mỗi 2s chạy 1 lần
+    @SchedulerLock(name = "generateReport", lockAtMostFor = "5m", lockAtLeastFor = "2s")
     public void generateReport() {
+        //lockAtLeastFor => sau bao lâu chạy lại job
+        //lockAtMostFor  => sau bao lâu sẽ mở khóa job nếu bị treo
         System.out.println("Generating report...");
     }
 }
