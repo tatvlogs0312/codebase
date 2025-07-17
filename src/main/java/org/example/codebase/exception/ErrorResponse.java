@@ -1,17 +1,16 @@
 package org.example.codebase.exception;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class ErrorResponse {
     private String timestamp;
     private String message;
-
-    public ErrorResponse () {
-
-    }
+    private String errorCode;
 
     public ErrorResponse (String timestamp, String message) {
         this.message = message;
