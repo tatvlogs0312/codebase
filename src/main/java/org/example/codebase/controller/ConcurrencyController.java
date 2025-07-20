@@ -2,6 +2,7 @@ package org.example.codebase.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.codebase.aop.DuplicateRequest;
 import org.example.codebase.redis.ConcurrencyRequestCheck;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,14 @@ public class ConcurrencyController {
             return "SUPPLER";
         });
         log.info(sup);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DuplicateRequest(key = "annotation", keyExpire = 60 * 10)
+    @GetMapping(value = "/annotation", name = "ANNOTATION")
+    public ResponseEntity<Object> checkDupUseAnnotation() throws InterruptedException {
+        log.info("checkDupUseAnnotation");
+        Thread.sleep(1000 * 60 * 2);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
