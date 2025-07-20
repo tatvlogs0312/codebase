@@ -39,7 +39,7 @@ public class ConcurrencyController {
     @GetMapping(value = "/annotation", name = "ANNOTATION")
     public ResponseEntity<Object> checkDupUseAnnotation() throws InterruptedException {
         log.info("checkDupUseAnnotation");
-        Thread.sleep(1000 * 60 * 2);
+        Thread.sleep(1000 * 30);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
