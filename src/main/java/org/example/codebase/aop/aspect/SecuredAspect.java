@@ -1,4 +1,4 @@
-package org.example.codebase.aop;
+package org.example.codebase.aop.aspect;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,6 +7,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.example.codebase.aop.Secured;
 import org.example.codebase.common.JwtUtils;
 import org.example.codebase.exception.AuthorizationException;
 import org.example.codebase.exception.ForbiddenException;

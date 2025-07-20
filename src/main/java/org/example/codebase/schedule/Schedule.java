@@ -14,8 +14,8 @@ public class Schedule {
         log.info("Run job");
     }
 
-    @Scheduled(fixedRate = 2000) // mỗi 2s chạy 1 lần
-    @SchedulerLock(name = "generateReport", lockAtMostFor = "5m", lockAtLeastFor = "2s")
+    @Scheduled(fixedRate = 1000 * 60 * 30) // mỗi 30m chạy 1 lần
+    @SchedulerLock(name = "generateReport", lockAtMostFor = "5m", lockAtLeastFor = "30m")
     public void generateReport() {
         //lockAtLeastFor => sau bao lâu chạy lại job
         //lockAtMostFor  => sau bao lâu sẽ mở khóa job nếu bị treo
