@@ -3,9 +3,7 @@ package org.example.codebase.common;
 import org.example.codebase.exception.ApplicationException;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.util.Objects;
 import java.util.UUID;
@@ -73,5 +71,13 @@ public class FileUtils {
             }
 
         }
+    }
+
+    public static InputStream getFileInputStream(MultipartFile file) throws IOException {
+        return new ByteArrayInputStream(file.getBytes());
+    }
+
+    public static InputStream getFileInputStream(byte[] bytes) {
+        return new ByteArrayInputStream(bytes);
     }
 }
